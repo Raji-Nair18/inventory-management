@@ -56,6 +56,13 @@ def buy(pid):
     db().commit()
     return redirect("/customer")
 
+def seasonal_factor(month, category):
+    if month in [10,11] and category=="electronics": # Diwali
+        return 1.6
+    if month in [3,4] and category=="clothes": # summer
+        return 1.3
+    return 1.0
+
 
 @app.route("/predict/<int:pid>")
 def predict(pid):
