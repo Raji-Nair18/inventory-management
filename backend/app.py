@@ -37,12 +37,25 @@ def customer():
 
 @app.route("/buy/<int:pid>")
 def buy(pid):
-    c=db().cursor()
+    c = db().cursor()
+
     c.execute("UPDATE products SET stock=stock-1 WHERE id=?", (pid,))
     c.execute("INSERT INTO sales VALUES(NULL,?,?,?)",
               (session["id"],pid,datetime.now().date()))
+
+    # 🔥 NEW LOGIC – SYNC PRODUCTS
+    c.execute("SELECT product_b FROM product_pairs WHERE product_a=?", (pid,))
+    linked = c.fetchall()
+
+    for (p,) in linked:
+        c.execute("SELECT stock FROM products WHERE id=?", (p,))
+        stock = c.fetchone()[0]
+        if stock < 5:
+            send_email("supplier@mail.com", f"Restock linked product {p}")
+
     db().commit()
     return redirect("/customer")
+
 
 @app.route("/predict/<int:pid>")
 def predict(pid):
