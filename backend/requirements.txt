@@ -1,1 +1,6 @@
+flask
+sqlite3
+numpy
+scikit-learn
+twilio
 
