@@ -20,4 +20,14 @@ CREATE TABLE sales (
     product_id INTEGER,
     date DATE
 );
+CREATE TABLE weather (
+    date TEXT,
+    condition TEXT
+);
+
+CREATE TABLE product_pairs (
+    product_a INTEGER,
+    product_b INTEGER,
+    confidence REAL
+);
 
