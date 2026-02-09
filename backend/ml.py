@@ -14,5 +14,6 @@ def predict_demand(pid):
     y=np.array([d[1] for d in data])
 
     model=LinearRegression().fit(X,y)
-    pred=model.predict([[len(data)+7]])[0]
-    return {"predicted_next_week": int(pred)}
+   pred = model.predict([[len(data)+7]])[0]
+   final = pred * weather_multiplier(weather, category)
+   return {"predicted_next_week": int(final)}
