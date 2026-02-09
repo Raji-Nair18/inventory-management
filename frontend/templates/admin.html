@@ -1,1 +1,8 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="c"></canvas>
+<script>
+fetch("/sales_data").then(r=>r.json()).then(d=>{
+new Chart(c,{type:'line',data:{labels:d.l, datasets:[{data:d.v}]}})
+})
+</script>
 
