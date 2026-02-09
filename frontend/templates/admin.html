@@ -1,8 +1,37 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <canvas id="c"></canvas>
 <script>
 fetch("/sales_data").then(r=>r.json()).then(d=>{
 new Chart(c,{type:'line',data:{labels:d.l, datasets:[{data:d.v}]}})
 })
-</script>
+</script> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Admin – Inventory Overview</h2>
+
+<table border="1">
+<tr>
+<th>Name</th><th>Category</th><th>Stock</th><th>Expiry</th>
+</tr>
+{% for p in products %}
+<tr>
+<td>{{p[1]}}</td>
+<td>{{p[2]}}</td>
+<td>{{p[3]}}</td>
+<td>{{p[4]}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<canvas id="salesChart"></canvas>
+
+<script src="/static/chart.js"></script>
+</body>
+</html>
 
