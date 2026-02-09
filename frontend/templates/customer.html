@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Store</title>
+</head>
+<body>
+
+<h2>Available Products</h2>
+
+<table border="1">
+<tr>
+<th>Name</th><th>Category</th><th>Stock</th><th>Buy</th>
+</tr>
+
+{% for p in products %}
+<tr>
+<td>{{p[1]}}</td>
+<td>{{p[2]}}</td>
+<td>{{p[3]}}</td>
+<td><a href="/buy/{{p[0]}}">Buy</a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
 
