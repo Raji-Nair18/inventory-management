@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop Owner</title>
+</head>
+<body>
+
+<h2>Shop Owner Dashboard</h2>
+
+<table border="1">
+<tr>
+<th>Product</th><th>Stock</th>
+</tr>
+{% for p in products %}
+<tr>
+<td>{{p[1]}}</td>
+<td>{{p[3]}}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
 
