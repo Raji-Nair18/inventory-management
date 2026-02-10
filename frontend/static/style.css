@@ -1,0 +1,29 @@
+body {
+    background-color: #f4f6f9;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.table {
+    background: white;
+}
+
+.dashboard-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.badge-low {
+    background-color: #dc3545;
+}
+
+.badge-ok {
+    background-color: #28a745;
+}
