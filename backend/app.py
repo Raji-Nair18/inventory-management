@@ -37,54 +37,54 @@ def init_db():
     conn = db()
     c = conn.cursor()
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        email TEXT UNIQUE,
-        password TEXT,
-        role TEXT
-    )
-    """)
+    # c.execute("""
+    # CREATE TABLE IF NOT EXISTS users (
+    #     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #     name TEXT,
+    #     email TEXT UNIQUE,
+    #     password TEXT,
+    #     role TEXT
+    # )
+    # """)
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS products (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        category TEXT,
-        stock INTEGER,
-        expiry DATE
-    )
-    """)
+    # c.execute("""
+    # CREATE TABLE IF NOT EXISTS products (
+    #     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #     name TEXT,
+    #     category TEXT,
+    #     stock INTEGER,
+    #     expiry DATE
+    # )
+    # """)
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS sales (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
-        product_id INTEGER,
-        date DATE
-    )
-    """)
+    # c.execute("""
+    # CREATE TABLE IF NOT EXISTS sales (
+    #     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #     user_id INTEGER,
+    #     product_id INTEGER,
+    #     date DATE
+    # )
+    # """)
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS customers_profile (
-        user_id INTEGER,
-        product_id INTEGER,
-        frequency INTEGER,
-        PRIMARY KEY (user_id, product_id)
-    )
-    """)
+    # c.execute("""
+    # CREATE TABLE IF NOT EXISTS customers_profile (
+    #     user_id INTEGER,
+    #     product_id INTEGER,
+    #     frequency INTEGER,
+    #     PRIMARY KEY (user_id, product_id)
+    # )
+    # """)
 
-    c.execute("""
-    CREATE TABLE IF NOT EXISTS product_pairs (
-        product_a INTEGER,
-        product_b INTEGER,
-        confidence REAL
-    )
-    """)
+    # c.execute("""
+    # CREATE TABLE IF NOT EXISTS product_pairs (
+    #     product_a INTEGER,
+    #     product_b INTEGER,
+    #     confidence REAL
+    # )
+    # """)
 
-    conn.commit()
-    conn.close()
+    # conn.commit()
+    # conn.close()
 
 # ---------------- ROUTES ----------------
 @app.route("/")
