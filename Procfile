@@ -1,0 +1,1 @@
+web: cd Backend && python migrate_expiry_date.py && python migrate_batches.py && gunicorn "app:create_app()"
